@@ -3,3 +3,4 @@
 .main-content { min-height: 400px; }
 .main-content img { margin: 6px; }
 .main-content p.image-anchors a:hover { text-decoration: none }
+.footer { border-top: 2px solid #666; padding-top: 10px; }
