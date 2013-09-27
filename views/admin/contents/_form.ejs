@@ -2,13 +2,15 @@
     <div class="control-group">
       <label class="control-label" for="content[title]">Title</label>
       <div class="controls">
-        <input type="text" name="content[title]" value="<%= (content.title || '') %>" class="input-xxlarge" placeholder="Nursery rhymes"/>
+        <input type="text" name="content[title]" value="<%= (content.title || '') %>" class="input-xxlarge"/>
+        <%- partial('admin/contents/_messages', { locals: { model : content, field_name : 'title' }}) %>
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="content[path]">Path</label>
       <div class="controls">
-        <input type="text" name="content[path]" value="<%= (content.path || '') %>" class="input-xxlarge" placeholder="nursery-rhymes"/>
+        <input type="text" name="content[path]" value="<%= (content.path || '') %>" class="input-xxlarge"/>
+        <%- partial('admin/contents/_messages', { locals: { model : content, field_name : 'path' }}) %>
       </div>
     </div>
     <div class="control-group">

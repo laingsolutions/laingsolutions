@@ -33,7 +33,7 @@ exports.create = function(req, res){
   var content = new Content(req.body.content);
   if (content.save(function(err, content) {
     if (err) {
-      res.render('admin/contents/new', { err: err });
+      res.render('admin/contents/new', { content: err });
     } else {
       es.submit(content);
       res.redirect('/admin/contents');

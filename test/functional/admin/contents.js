@@ -13,13 +13,13 @@ var helper          = require('../../test-helper'),
 describe('Admin contents page', function() {
 
   before(function(done){
+    Content.remove({}, function(err){});
     passportStub.install(app);
     Factory.create('content',{ path:"foo",title:"Foo!",body:"### Some foo content" },function(){});
     Factory.create('content',{ path:"bar",title:"Bar!",body:"### Some bar content" },function(){});
     Factory.create('content',{ path:"meh",title:"Meh!",body:"### Some meh content" },function(){});
     Factory.create('user', { username : 'admin', password : passwordHash.generate('blank') }, function(){
       User.findOne({username: 'admin'}, function(err, user) {
-        console.log(user);
         passportStub.login(user);
         done();
       });
@@ -85,6 +85,28 @@ describe('Admin contents page', function() {
     });
   });
 
+  describe('POST create with invalid params', function(){
+    before(function(done){
+      process.env.BONSAI_URL = "http://example.com"
+      var scope = nock("http://example.com").post("/lsl-content/content/beelzebob").reply(200, JSON.stringify({
+        "ok":true,"_index":"tnho41glrc487qyvq9jf","_type":"content","_id":"beelzebob","_version":1
+      }));
+      done();
+    });
+    it('should display validation errors', function(done){
+      request.post('http://localhost:3001/admin/contents', 
+        { form: { content: { title: "", body: "", path: "" } } },
+        function(err, res, body){
+          var $ = cheerio.load(body);
+          res.statusCode.should.be.ok;
+          $('span.error.title').text().should.equal("required");
+          $('span.error.path').text().should.equal("required");
+          done();
+        });
+    });
+  });
+
+
   describe('GET edit', function(){
     before(function(done){
       Content.findOne({path: "meh"}, function(err, doc){
@@ -112,5 +134,3 @@ describe('Admin contents page', function() {
     });
   });
 });
-
-
