@@ -21,7 +21,7 @@ describe('GET to /admin/index', function() {
   it('should be possible to log in', function(done){
     request.post('http://localhost:3001/login', { form: {username: 'Administrator', password: '5up3r53cr3t'}}, function(err, res, body) {
       res.statusCode.should.equal(302);
-      body.should.equal("Moved Temporarily. Redirecting to /admin/index");
+      body.should.equal("Moved Temporarily. Redirecting to /");
       done();
     });
   });
