@@ -14,9 +14,9 @@ var adminRoutes = require('./routes/admin')
   , passport  = require('passport')
   , path      = require('path')
   , routes    = require('./routes');
-   
+
 /**
- * Mongoose config 
+ * Mongoose config
  */
 mongoose.set('debug', true); // TODO: Should be ENV dependent.
 mongoose.connect(process.env.MONGOHQ_URL);
@@ -28,7 +28,7 @@ db.once('open', function callback () {
 });
 
 /**
- * App config 
+ * App config
  */
 var app = express();
 
@@ -44,7 +44,7 @@ app.configure(function(){
   app.use(express.session({ secret: 'm0ng0hQ-n0d3-535510n' }));
   app.use(passport.initialize());
   app.use(passport.session());
-  app.use(partials()); 
+  app.use(partials());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
