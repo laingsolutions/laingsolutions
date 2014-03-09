@@ -35,7 +35,7 @@ describe('The homepage', function() {
   });
 
   it('should have some footer text', function(done){
-    response.$("div.container p.credit").text().should.match(/© MyCo \d\d\d\d\. Company # 1234567/);
+    response.$("div.container p.credit").text().should.match(/© Laing Solutions 20\d\d\. Company # 6376724/);
     done();
   });
 
