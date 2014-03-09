@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><% pageTitle("Welcome") %></title>
-    <link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
-    <link rel='stylesheet' href='/bootstrap/css/bootstrap-responsive.min.css' />
-    <link rel='stylesheet' href='/stylesheets/app.css' />
-    <link href='http://fonts.googleapis.com/css?family=Rationale' rel='stylesheet' type='text/css'>
+    <title>Laing Solutions</title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css"/>
   </head>
   <body>
-    <%- partial('navigation') %> 
-    <div class="main-content container">
-      <%- body %>
-    </div>
-    <%- partial('footer') %>
-    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
-    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <header>
+      <div class="header">
+        <div class="logo">
+          <h1>Laing Solutions</h1>
+          <h2>Digital development services</h2>
+        </div>
+        <div class="nav">
+          <nav class="main">
+            <ul>
+              <li><a href="/projects" class="clients">Clients</a></li>
+              <li><a href="" class="code">Code</a></li>
+              <li><a href="" class="comment">Comment</a></li>
+              <li><a href="/contact" class="contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section>
+      <article>
+        <div class="content">
+          <%- body %>
+        </div>
+      </article>
+    </section>
+    <footer>
+      <div class="footer">
+        <p class="credit">
+          &copy; Laing Solutions 2014. Registered Company No. 6376724.
+          <a href="mailto:info@laingsolutions.com">info@laingsolutions.com</a>
+        </p>
+        <p class="credit">
+          Built using <a href="http://heroku.com">Heroku</a>, <a href="http://nodejs.org">Node JS</a>, <a href="http://expressjs.com/">Express</a> and <a href="http://mongohq.com">MongoHQ</a>. <a href="https://github.com/steventux/mongohq-node/tree/lsl">Here's how</a>.
+        </p>
+      </div>
+    </footer>
+    <%- partial('ga') %>
   </body>
 </html>

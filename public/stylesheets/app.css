@@ -1,6 +1,22 @@
-.navbar-inverse .brand { font-family: 'Rationale', sans-serif; font-size: 1.8em; }
-.navbar-inner { min-height: 46px; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; }
-.main-content { min-height: 400px; }
-.main-content img { margin: 6px; }
-.main-content p.image-anchors a:hover { text-decoration: none }
-.footer { border-top: 2px solid #666; padding-top: 10px; }
+body { margin:0; padding: 0; font-family:"Ubuntu Mono", monospace; font-size: 18px; color: #2d2d2d; }
+header { background: url('/stylesheets/bg.png')  #5c6063; color:#f3f6f9; }
+.header, .content, .footer { max-width: 68%; margin: 0 auto 0 auto; padding: 12px 14px 12px 14px;}
+.header { padding-top: 0; }
+.logo { min-width:55%; padding: 22px 44px 22px 0; }
+.logo, .nav { display:inline-block; min-height: 100px; }
+.logo h1:before { content: '{ '; font-size: 130%; }
+.logo h1:after { content: ' }'; font-size: 130%; }
+.logo h1 { font-size: 3em; }
+.logo h2 { margin-left: 78px; font-size: 16px; font-family: monospace; font-weight: normal; }
+.nav { min-width: 25%; vertical-align: top; margin-top:44px; }
+.nav ul { list-style:none; }
+.nav li { margin: 12px;}
+.nav li a { font-size: 22px; color: #f3f6f9; text-decoration:none; }
+.nav li a.clients:before { content: ':-) '; }
+.nav li a.code:before { content: '> # '; }
+.nav li a.comment:before { content: '// '; }
+.nav li a.contact:before { content: '* @ '; }
+.content { padding-top: 18px; }
+.content a { color: #0066ff; }
+.footer { font-family: monospace; font-size: 14px; margin: 18px auto 8px auto; max-width: 75%; text-align: center; }
+.footer a { color: #5c6063; }
