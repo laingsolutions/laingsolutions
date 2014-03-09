@@ -15,9 +15,10 @@ describe("Content", function() {
     it("should validate required field title, path and body", function(done){
       var content = new Content();
       content.save(function(err){
-        err.errors.title.message.should.equal("Validator \"required\" failed for path title with value `undefined`");
-        err.errors.path.message.should.equal("Validator \"required\" failed for path path with value `undefined`");
-        err.errors.body.message.should.equal("Validator \"required\" failed for path body with value `undefined`");
+        console.log(err.errors);
+        err.errors.title.message.should.equal("Validator \"required\" failed for path title");
+        err.errors.path.message.should.equal("Validator \"required\" failed for path path");
+        err.errors.body.message.should.equal("Validator \"required\" failed for path body");
         done();
       });
     });
