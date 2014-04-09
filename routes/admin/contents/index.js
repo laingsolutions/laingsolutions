@@ -5,7 +5,7 @@ var Content = require('./../../../models/content'),
  */
 exports.index = function(req, res){
   Content.find().sort('path').exec(function(e, docs){
-    res.render('admin/contents/index', { contents : (e ? [] : docs) });
+    res.render('admin/contents/index', { contents : (e ? [] : docs), layout: 'admin/layout' });
   });
 }
 
@@ -13,7 +13,7 @@ exports.index = function(req, res){
  * GET admin/contents/new
  */
 exports._new = function(req, res){
-  res.render('admin/contents/new', { content: new Content() });
+  res.render('admin/contents/new', { content: new Content() , layout: 'admin/layout'});
 }
 
 /*
@@ -21,7 +21,7 @@ exports._new = function(req, res){
  */
 exports.edit = function(req, res){
   Content.findOne({_id: req.params.id}, function(err, content) {
-    res.render('admin/contents/edit', { content: content });
+    res.render('admin/contents/edit', { content: content , layout: 'admin/layout'});
   });
 }
 
@@ -33,7 +33,7 @@ exports.create = function(req, res){
   var content = new Content(req.body.content);
   if (content.save(function(err, content) {
     if (err) {
-      res.render('admin/contents/new', { content: err });
+      res.render('admin/contents/new', { content: err , layout: 'admin/layout'});
     } else {
       es.submit(content);
       res.redirect('/admin/contents');
@@ -49,7 +49,7 @@ exports.update = function(req, res){
   var content = Content.findOneAndUpdate({_id : req.params.id}, req.body.content,
     function(err, content) {
       if (err) {
-        res.render('admin/contents/'+req.params.id+'/edit', { err: err });
+        res.render('admin/contents/'+req.params.id+'/edit', { err: err , layout: 'admin/layout'});
       } else {
         es.submit(content);
         res.redirect('/admin/contents');
