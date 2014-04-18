@@ -19,9 +19,9 @@ describe('Searching', function() {
   it("should format search results when present", function(done){
     request.get('http://localhost:3001/search?q=bong', function(err, res, body) {
       var $ = cheerio.load(body);
-      $('.main-content p').eq(0).text().should.equal("2 results found for 'bong'");
-      $('.main-content ol li').eq(0).text().should.equal("Bongzilla");
-      $('.main-content ol li').eq(1).text().should.equal("Beelzebong");
+      $('.content p').eq(0).text().should.equal("2 results found for 'bong'");
+      $('.content ol li').eq(0).text().should.equal("Bongzilla");
+      $('.content ol li').eq(1).text().should.equal("Beelzebong");
       done();
     });
   });

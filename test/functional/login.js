@@ -7,7 +7,7 @@ var helper          = require('../test-helper'),
 describe('GET to /admin/index', function() {
 
   before(function(done){
-    Factory.create('user', { username : 'Administrator', 
+    Factory.create('user', { username : 'Administrator',
                              password : passwordHash.generate('5up3r53cr3t') }, function(){ done(); });
   });
 
@@ -21,7 +21,7 @@ describe('GET to /admin/index', function() {
   it('should be possible to log in', function(done){
     request.post('http://localhost:3001/login', { form: {username: 'Administrator', password: '5up3r53cr3t'}}, function(err, res, body) {
       res.statusCode.should.equal(302);
-      body.should.equal("Moved Temporarily. Redirecting to /");
+      body.should.equal("Moved Temporarily. Redirecting to /admin/index");
       done();
     });
   });

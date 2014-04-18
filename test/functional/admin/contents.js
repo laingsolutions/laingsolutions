@@ -55,8 +55,8 @@ describe('Admin contents page', function() {
       request.get('http://localhost:3001/admin/contents/new', function(err, res, body) {
         var $ = cheerio.load(body);
         res.statusCode.should.be.ok;
-        $('form').eq(1).attr('action').should.equal('/admin/contents');
-        $("form input[name='content[title]']").val().should.equal('');       
+        $('form').eq(0).attr('action').should.equal('/admin/contents');
+        $("form input[name='content[title]']").val().should.equal('');
         done();
       });
     });
@@ -71,7 +71,7 @@ describe('Admin contents page', function() {
       done();
     });
     it('should accept a form submission and save new content', function(done){
-      request.post('http://localhost:3001/admin/contents', 
+      request.post('http://localhost:3001/admin/contents',
         { form: { content: { title: "Beelzebob", body: "# The Story of Beelzebob", path: "beelzebob" } } },
         function(err, res, body){
           var $ = cheerio.load(body);
@@ -94,7 +94,7 @@ describe('Admin contents page', function() {
       done();
     });
     it('should display validation errors', function(done){
-      request.post('http://localhost:3001/admin/contents', 
+      request.post('http://localhost:3001/admin/contents',
         { form: { content: { title: "", body: "", path: "" } } },
         function(err, res, body){
           var $ = cheerio.load(body);
@@ -119,7 +119,7 @@ describe('Admin contents page', function() {
       request.get('http://localhost:3001/admin/contents/' + content._id + '/edit', function(err, res, body) {
         var $ = cheerio.load(body);
         res.statusCode.should.be.ok;
-        $('form').eq(1).attr('action').should.equal('/admin/contents/' + content._id);
+        $('form.form-horizontal').attr('action').should.equal('/admin/contents/' + content._id);
         $("form input[name='content[title]']").val().should.equal('Meh!');
         $("form input[name='content[path]']").val().should.equal('meh');
         $("form textarea[name='content[body]']").val().should.equal('### Some meh content');

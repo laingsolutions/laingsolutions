@@ -18,7 +18,7 @@ describe('The homepage', function() {
       done();
     });
   });
- 
+
   it('should show some headings', function(done){
     response.res.statusCode.should.be.ok;
     response.body.should.match(/Testing!/)
@@ -27,15 +27,15 @@ describe('The homepage', function() {
   });
 
   it('should have navigation', function(done){
-    response.$("ul.nav li.active a").text().should.equal("Home");
-    response.$("ul.nav li a[href='/projects']").text().should.equal("Recent work");
-    response.$("ul.nav li a[href='/contact']").text().should.equal("Contact");
-    response.$("ul.nav li a[href='/about']").text().should.equal("About");
+    response.$(".nav li:nth-child(1)").text().should.equal("Clients");
+    response.$(".nav li:nth-child(2)").text().should.equal("Code");
+    response.$(".nav li:nth-child(3)").text().should.equal("Comment");
+    response.$(".nav li:nth-child(4)").text().should.equal("Contact");
     done();
   });
 
   it('should have some footer text', function(done){
-    response.$("div.container p.credit").text().should.match(/© Laing Solutions 20\d\d\. Company # 6376724/);
+    response.$(".footer p.credit").text().should.match(/© Laing Solutions 20\d\d\. Registered Company No. 6376724/);
     done();
   });
 
