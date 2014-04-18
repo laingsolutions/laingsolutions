@@ -9,15 +9,25 @@ header { background: url('/stylesheets/bg.png')  #5c6063; color:#f3f6f9; }
 .logo h1:after { content: ' }'; font-size: 130%; }
 .logo h1 { font-size: 3em; font-family: "Ubuntu Mono", monospace; }
 .logo h2 { margin-left: 78px; font-size: 16px; font-family: sans-serif; font-weight: normal; }
-.nav { min-width: 25%; vertical-align: top; margin-top:44px; }
+.nav { min-width: 25%; vertical-align: top; margin-top:44px; text-align: right; }
 .nav ul { list-style:none; }
 .nav li { margin: 12px;}
 .nav li a { font-size: 22px; color: #f3f6f9; text-decoration:none; }
+.nav li a:hover { text-decoration:underline; }
+.nav li a:before { color: #c9c9c9; }
 .nav li a.clients:before { content: ':-) '; }
 .nav li a.code:before { content: '> # '; }
 .nav li a.comment:before { content: '// '; }
 .nav li a.contact:before { content: '* @ '; }
 .content { padding-top: 18px; }
 .content a { color: #0066ff; }
-.footer { font-family: sans-serif; font-size: 14px; margin: 18px auto 8px auto; max-width: 75%; text-align: center; }
+.footer { font-family: sans-serif; font-size: 14px; margin: 18px auto 8px auto; max-width:68%; text-align: center; }
 .footer a { color: #5c6063; }
+@media all and (max-width: 767px) {
+  .header, .content, footer { max-width:100%; margin:0; padding:4px; }
+  .logo h1 { margin:0; }
+  .logo h1:before, .logo h1:after { content:''; }
+  .logo h2 { margin:0; }
+  .nav { margin:0; text-align:center; }
+  .nav ul, .nav li { margin:0; padding:0; display:inline; }
+}
