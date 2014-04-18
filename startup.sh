@@ -10,3 +10,5 @@ do
   echo "export $env_var=$es_config"
   export $env_var=$es_config
 done
+
+node app.js
