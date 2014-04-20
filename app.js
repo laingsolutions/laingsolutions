@@ -72,7 +72,7 @@ app.use(function(req, res, next){
 /**
  * Routing
  */
-app.get('/', routes.index);
+app.get('/', routes.setExpiry, routes.index);
 // Auth routes
 app.get('/login', routes.login);
 app.post('/login', passport.authenticate('local', { successReturnToOrRedirect: '/', failureRedirect: '/login' }));
@@ -88,7 +88,7 @@ app.put('/admin/contents/:id',      ensureLoggedIn(), adminContentRoutes.update)
 app.get('/search', routes.search);
 
 // Give other specific routes priority by placing them before this one
-app.get('/:path', routes.contentByPath);
+app.get('/:path', routes.setExpiry, routes.contentByPath);
 
 
 // Export the app for tests/console debugging.

@@ -19,6 +19,11 @@ describe('The homepage', function() {
     });
   });
 
+  it('should set the cache header', function(done) {
+    response.res.headers['cache-control'].should.equal('max-age=1800, public');
+    done();
+  });
+
   it('should show some headings', function(done){
     response.res.statusCode.should.be.ok;
     response.body.should.match(/Testing!/)
