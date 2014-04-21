@@ -23,12 +23,13 @@ header { background: url('/stylesheets/bg.png')  #5c6063; color:#f3f6f9; }
 .content a { color: #0066ff; }
 .footer { font-family: sans-serif; font-size: 14px; margin: 18px auto 8px auto; max-width:68%; text-align: center; }
 .footer a { color: #5c6063; }
-
-@media all and (max-width: 720px) {
+@media all and (max-width: 1195px) {
+  .nav { margin: 0; text-align: center; max-width: 500px; }
+  .nav ul, .nav li { margin:0; padding:0; display:inline; }
+}
+@media all and (max-width: 882px) {
   .header, .content, .footer { max-width: 100%; margin:0; padding:4px; }
   .logo h1 { margin:0; }
   .logo h1:before, .logo h1:after { content:''; }
   .logo h2 { margin:0; }
-  .nav { margin: 0; text-align: center; max-width: 500px; }
-  .nav ul, .nav li { margin:0; padding:0; display:inline; }
 }
