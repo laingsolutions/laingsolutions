@@ -7,7 +7,7 @@ var helper          = require('../test-helper'),
 describe('Searching', function() {
   before(function(done) {
     process.env.BONSAI_URL = "http://example.com"
-    var scope = nock("http://example.com").get("/contents/content/_search?q=bong").reply(200, JSON.stringify({ hits: {
+    var scope = nock("http://example.com").get("/lsl-content/content/_search?q=bong").reply(200, JSON.stringify({ hits: {
       total: 2,
       hits: [
         {_source: {title : "Bongzilla", url : "http://www.youtube.com/watch?v=MW1enu9YAJY"}},
