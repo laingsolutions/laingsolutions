@@ -6,9 +6,10 @@ var Content = function() {
   var contentSchema = mongoose.Schema({
     title: { type: String, required: true },
     path: { type: String, required: true },
-    body: { type: String, required: true }
+    body: { type: String, required: true },
+    tags: [String]
   }, { collection: 'contents' } );
-  
+
   contentSchema.methods.bodyText = function() {
     var html = markdown.toHTML(this.body),
         htmlRe = /(<([^>]+)>)|(&#\d+;)/ig;
