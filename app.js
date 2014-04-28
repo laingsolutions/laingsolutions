@@ -56,12 +56,9 @@ app.configure('development', function(){
 /**
  * Libs and helpers.
  */
-require('./lib/markdown');
 require('./lib/passport');
+require('./helpers')(app);
 
-app.locals.pageTitle = function(obj) {
-  return (obj.title ? obj.title : obj);
-};
 
 // Redundant middleware as the catchall route handles this.
 // I still feel better knowin it's there though.

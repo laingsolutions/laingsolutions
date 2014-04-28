@@ -26,7 +26,6 @@ describe('The homepage', function() {
 
   it('should show some headings', function(done){
     response.res.statusCode.should.be.ok;
-    response.body.should.match(/Testing!/)
     response.body.should.match(/Some test content/);
     done();
   });
