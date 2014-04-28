@@ -1,0 +1,8 @@
+<h1>Comment</h1>
+<ul>
+  <% comments.hits.forEach(function(comment){ %>
+  <li>
+    <p><a href="<%= comment._source.url %>"><%= comment._source.title %></a></p>
+  </li>
+  <% }); %>
+</ul>

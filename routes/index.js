@@ -42,6 +42,12 @@ exports.contentByPath = function(req, res){
   });
 }
 
+exports.comments = function (req, res) {
+  es.search('tags:comment', function (comments) {
+    res.render('comments', { comments: comments });
+  });
+};
+
 exports.search = function(req, res){
   es.search(req.query.q, function(result) {
     res.render('results', { results: result, query: req.query.q });
