@@ -1,10 +1,6 @@
-<% if (results.error) { %>
-  <p><%= results.error.status %> : <%= results.error.error %></p>
-<% } else { %>
-  <p><%= results.total + (results.total == 1 ? " result" : " results") %> found for '<%= query %>'</p>
-  <ol>
-    <% results.hits.forEach(function(result){ %>
-    <li><a href="<%= result._source.url %>"><%= result._source.title %></a></li>
-    <% }); %>
-  </ol>
-<% } %>
+<p><%= total + (total == 1 ? " result" : " results") %> found for '<%= query %>'</p>
+<ol>
+  <% results.forEach(function (result) { %>
+  <li><a href="<%= result.path %>"><%= result.title %></a></li>
+  <% }); %>
+</ol>

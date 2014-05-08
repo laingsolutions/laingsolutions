@@ -1,8 +1,8 @@
 <h1>Comment</h1>
 <ul>
-  <% comments.hits.forEach(function(comment){ %>
+  <% comments.forEach(function (comment) { %>
   <li>
-    <p><a href="<%= comment._source.url %>"><%= comment._source.title %></a></p>
+    <p><a href="/<%= comment.path %>"><%= comment.title %></a>&nbsp;<%= formatDate(comment.updated) %></p>
   </li>
   <% }); %>
 </ul>

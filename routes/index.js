@@ -1,4 +1,5 @@
 var Content = require('./../models/content'),
+    ContentService = require('./../services/content_service'),
     es = require('./../lib/elasticsearch'),
     mongoose = require('mongoose'),
     request = require('request');
@@ -44,12 +45,16 @@ exports.contentByPath = function(req, res){
 
 exports.comments = function (req, res) {
   es.search('tags:comment', function (comments) {
-    res.render('comments', { comments: comments });
+    res.render('comments', { comments: ContentService.getContents(comments.hits) });
   });
 };
 
 exports.search = function(req, res){
-  es.search(req.query.q, function(result) {
-    res.render('results', { results: result, query: req.query.q });
+  es.search(req.query.q, function(results) {
+    res.render('results', {
+      results: ContentService.getContents(results.hits),
+      query: req.query.q,
+      total: results.total
+    });
   });
 }

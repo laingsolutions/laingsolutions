@@ -7,7 +7,7 @@ var helper          = require('../test-helper'),
 describe('Searching', function() {
   before(function(done) {
     process.env.BONSAI_URL = "http://example.com"
-    var scope = nock("http://example.com").get("/lsl-content/content/_search?q=bong").reply(200, JSON.stringify({ hits: {
+    var scope = nock("http://example.com").get("/lsl-content/content/_search?q=tags:comment").reply(200, JSON.stringify({ hits: {
       total: 2,
       hits: [
         {_source: {title : "Bongzilla", path : "bongzilla"}},
@@ -17,11 +17,10 @@ describe('Searching', function() {
     done();
   });
   it("should format search results when present", function(done){
-    request.get('http://localhost:3001/search?q=bong', function(err, res, body) {
+    request.get('http://localhost:3001/comment', function(err, res, body) {
       var $ = cheerio.load(body);
-      $('.content p').eq(0).text().should.equal("2 results found for 'bong'");
-      $('.content ol li').eq(0).text().should.equal("Bongzilla");
-      $('.content ol li').eq(1).text().should.equal("Beelzebong");
+      $('.content ul li').eq(0).text().should.match(/Bongzilla/);
+      $('.content ul li').eq(1).text().should.match(/Beelzebong/);
       done();
     });
   });
