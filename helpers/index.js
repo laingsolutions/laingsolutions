@@ -1,4 +1,5 @@
-var markdown = require('markdown').markdown;
+var markdown = require('markdown').markdown,
+    strftime = require('strftime');
 
 var containsMarkup = function (str) {
   return str.match(/^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/);
@@ -24,5 +25,9 @@ module.exports = function (app) {
    */
   app.locals.pageTitle = function(obj) {
     return (obj && obj.title ? obj.title : "");
+  },
+
+  app.locals.formatDate = function (date) {
+    return strftime("%v", date);
   }
 }

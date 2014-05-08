@@ -10,13 +10,15 @@
     "connect-ensure-login": "*",
     "express": "3.0.4",
     "ejs": "*",
-    "mongoose": "*",
     "markdown": "*",
+    "mongoose": "*",
+    "mongoose-timestamp": "0.2.1",
     "express-partials": "*",
     "passport": "*",
     "passport-local": "*",
     "password-hash": "*",
-    "request": "*"
+    "request": "*",
+    "strftime": "0.8.0"
   },
   "devDependencies": {
     "cheerio": "*",
