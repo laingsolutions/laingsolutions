@@ -2,7 +2,10 @@
 <ul>
   <% comments.forEach(function (comment) { %>
   <li>
-    <p><a href="/<%= comment.path %>"><%= comment.title %></a>&nbsp;<%= formatDate(comment.updated) %></p>
+    <p>
+      <a href="/<%= comment.path %>"><%= comment.title %></a>
+      <span class="comment-date"><%= formatDate(comment.updated) %></span>
+    </p>
   </li>
   <% }); %>
 </ul>

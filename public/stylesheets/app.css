@@ -21,6 +21,7 @@ header { background: url('/stylesheets/bg.png')  #5c6063; color:#f3f6f9; }
 .nav li a.contact:before { content: '* @ '; }
 .content { padding-top: 18px; }
 .content a { color: #0066ff; }
+.content .comment-date { padding-left: 12px; color: #909090; font-size: 0.75em; }
 .footer { font-family: sans-serif; font-size: 14px; margin: 18px auto 8px auto; max-width:68%; text-align: center; }
 .footer a { color: #5c6063; }
 @media all and (max-width: 1195px) {
