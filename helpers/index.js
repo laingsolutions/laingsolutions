@@ -28,6 +28,6 @@ module.exports = function (app) {
   },
 
   app.locals.formatDate = function (date) {
-    return strftime("%v", date);
+    return strftime("%A, %d %B %Y", date);
   }
 }
